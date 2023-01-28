@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/drawable/ic__fitness_center.xml" value="0.135" />
+        <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/font/roboto.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/content_main.xml" value="0.1641337386018237" />
         <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_first.xml" value="0.1641337386018237" />
+        <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_main.xml" value="0.25" />
+        <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_recover.xml" value="0.1" />
+        <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_second.xml" value="0.1641337386018237" />
         <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/item_treino.xml" value="0.365625" />
         <entry key="..\:/Users/Salazar/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/items_treino.xml" value="0.365625" />
