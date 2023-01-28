@@ -49,7 +49,6 @@ class RecoverFragment : Fragment() {
             recoverAccount(email)
         } else {
             Toast.makeText(requireContext(), "Insert a email", Toast.LENGTH_SHORT).show()
-
         }
     }
 

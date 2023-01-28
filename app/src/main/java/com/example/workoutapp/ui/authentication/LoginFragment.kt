@@ -42,8 +42,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun initListeners() {
-        binding.btnLogin.setOnClickListener { validateData()
-        }
+        binding.btnLogin.setOnClickListener { validateData() }
 
         binding.tvForgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_recoverFragment)

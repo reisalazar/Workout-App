@@ -1,3 +1,4 @@
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -5,6 +6,7 @@ import com.example.workoutapp.databinding.ListItemTreinoBinding
 import com.example.workoutapp.model.Treino
 
 class TreinoAdapter(
+    var context: Context,
     private val treinoList: List<Treino>
 ) : RecyclerView.Adapter<TreinoAdapter.ViewHolder>() {
 
