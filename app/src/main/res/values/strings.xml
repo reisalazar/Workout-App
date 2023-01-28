@@ -11,4 +11,12 @@
     <string name="workout_app">Workout App</string>
     <string name="send">Send</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recover_account">Recover Account</string>
+    <string name="register_account">Register Account</string>
+    <string name="button_to_add_workout">button to add workout</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="name">Name</string>
+    <string name="add_workout">Add Workout</string>
+    <string name="add_a_workout">Add a Workout</string>
 </resources>
