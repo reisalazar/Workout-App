@@ -11,11 +11,23 @@
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="bottom|center"
-        android:text="Create your Workout"
+        android:gravity="center"
+        android:text="@string/create_your_workout"
         android:textColor="@color/colorTheme"
-        android:textSize="36sp"
+        android:textSize="32sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_empty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTheme"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,10 +52,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/colorThemeDark"
+        android:contentDescription="@string/button_to_add_workout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/icon_fab"
-        android:contentDescription="@string/button_to_add_workout" />
+        app:srcCompat="@drawable/icon_fab" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

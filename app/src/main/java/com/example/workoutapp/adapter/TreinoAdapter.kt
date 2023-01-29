@@ -1,3 +1,5 @@
+package com.example.workoutapp.adapter
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -25,12 +27,19 @@ class TreinoAdapter(
 
         holder.binding.tvName.text = treino.nome.toString()
         holder.binding.tvDescription.text = treino.descricao
-        holder.binding.tvData.text = treino.data.toString()
+        holder.binding.tvData.text = treino.data
+
+        holder.binding.cardView.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int {
         return treinoList.size
+    }
 
+    fun getTreinoId(position: Int):String {
+        return treinoList[position].id
     }
 
     inner class ViewHolder(val binding: ListItemTreinoBinding) :

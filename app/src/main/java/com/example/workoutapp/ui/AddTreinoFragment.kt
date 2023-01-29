@@ -49,10 +49,9 @@ class AddTreinoFragment : Fragment() {
         val name = binding.etName.text.toString().toInt()
         val description = binding.etDescription.text.toString()
         val date = binding.etDate.text.toString()
-
         val id: String = myReference.push().key.toString()
 
-        val treino = Treino(name, description, date)
+        val treino = Treino(id, name, description, date)
 
         myReference.child(id).setValue(treino).addOnCompleteListener { task ->
 

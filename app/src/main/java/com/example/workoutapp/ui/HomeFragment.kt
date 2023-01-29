@@ -1,6 +1,6 @@
 package com.example.workoutapp.ui
 
-import TreinoAdapter
+import com.example.workoutapp.adapter.TreinoAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.FragmentHomeBinding
 import com.example.workoutapp.model.Treino
@@ -20,8 +22,7 @@ class HomeFragment : Fragment() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val myReference: DatabaseReference = database.reference.child("MyWorkouts")
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentHomeBinding
 
     private val treinoList = mutableListOf<Treino>()
     lateinit var treinoAdapter: TreinoAdapter
@@ -30,7 +31,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
 
@@ -39,15 +40,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        initRecyclerView()
+
         initListeners()
         retrieveDataFromDatabase()
+        deleteTreinoOnSwipe()
+
     }
 
-//    private fun initRecyclerView() {
-//        binding.rvWorkout.layoutManager = LinearLayoutManager(requireContext())
-//        binding.rvWorkout.adapter = TreinoAdapter(treinoList)
-//    }
 
     private fun initListeners() {
         binding.fabAdd.setOnClickListener {
@@ -68,12 +67,13 @@ class HomeFragment : Fragment() {
                     treinoList.add(treino)
                 }
 
-                    binding.rvWorkout.layoutManager = LinearLayoutManager(requireContext())
                     treinoAdapter = TreinoAdapter(requireContext(), treinoList)
+                    binding.rvWorkout.layoutManager = LinearLayoutManager(requireContext())
+                    binding.rvWorkout.setHasFixedSize(true)
                     binding.rvWorkout.adapter = treinoAdapter
 
                 }
-
+                treinoEmpty()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -85,10 +85,33 @@ class HomeFragment : Fragment() {
             }
         })
     }
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun treinoEmpty() {
+        binding.tvEmpty.text = if (treinoList.isEmpty()) {
+            getText(R.string.tv_treino_empty)
+        } else {
+            ""
+        }
     }
+
+    private fun deleteTreinoOnSwipe() {
+        ItemTouchHelper(object :
+            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+                val id = treinoAdapter.getTreinoId(viewHolder.adapterPosition)
+                myReference.child(id).removeValue()
+
+                Toast.makeText(requireContext(), "The user was deleted", Toast.LENGTH_SHORT).show()
+            }
+        }).attachToRecyclerView(binding.rvWorkout)
+    }
+
 }
